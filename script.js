@@ -30,7 +30,7 @@
             this.speedX = (Math.random() - 0.5) * 0.5;
             this.speedY = (Math.random() - 0.5) * 0.5;
             this.opacity = Math.random() * 0.5 + 0.1;
-            this.hue = Math.random() > 0.5 ? 190 : 30;
+            this.hue = Math.random() > 0.5 ? 172 : 25;
         }
         update() {
             this.x += this.speedX;
@@ -81,7 +81,7 @@
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < (isMobile ? 90 : 120)) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(6, 182, 212, ${0.12 * (1 - dist / (isMobile ? 90 : 120))})`;
+                    ctx.strokeStyle = `rgba(15, 118, 110, ${0.14 * (1 - dist / (isMobile ? 90 : 120))})`;
                     ctx.lineWidth = 0.6;
                     ctx.moveTo(particles[a].x, particles[a].y);
                     ctx.lineTo(particles[b].x, particles[b].y);
@@ -337,7 +337,7 @@ backToTop.addEventListener('click', () => {
         width: 400px;
         height: 400px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(249, 115, 22, 0.07) 0%, transparent 70%);
         pointer-events: none;
         z-index: 1;
         transform: translate(-50%, -50%);

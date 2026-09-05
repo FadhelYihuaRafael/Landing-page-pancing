@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="theme-color" content="#0c1445">
+    <meta name="theme-color" content="#f7f6f1">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Jaya Pancing - Toko Pancing Terlengkap & Terpercaya</title>
+    <title>Jaya Pancing - Senjata Tangkap Pemancing Sejati</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎣</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M30 12 v58 a22 22 0 1 0 44 0 v-8' fill='none' stroke='%2318302e' stroke-width='9' stroke-linecap='square'/><path d='M74 62 L88 68 L74 78' fill='none' stroke='%23f97316' stroke-width='9' stroke-linecap='square' stroke-linejoin='miter'/></svg>">
 </head>
 <body>
 
@@ -18,7 +18,7 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <i class="fas fa-fish"></i>
+                <i class="fas fa-hook"></i>
                 <span>Jaya Pancing</span>
             </a>
             <ul class="nav-links" id="navLinks">
@@ -42,32 +42,25 @@
     <section class="hero" id="home">
         <canvas id="particleCanvas" class="particle-canvas"></canvas>
         <div class="hero-bg">
-            <div class="wave wave1"></div>
-            <div class="wave wave2"></div>
-            <div class="wave wave3"></div>
-            <div class="fish fish1">🐟</div>
-            <div class="fish fish2">🐠</div>
-            <div class="fish fish3">🎣</div>
-            <div class="bubble bubble1"></div>
-            <div class="bubble bubble2"></div>
-            <div class="bubble bubble3"></div>
-            <div class="bubble bubble4"></div>
-            <div class="bubble bubble5"></div>
+            <div class="hero-grid"></div>
+            <div class="hero-slash slash-a"></div>
+            <div class="hero-slash slash-b"></div>
+            <div class="hero-hazard"></div>
         </div>
         <div class="container hero-content">
             <div class="hero-text">
                 <div class="hero-badge">
-                    <i class="fas fa-fire"></i> Promo Spesial Bulan Ini!
+                    <i class="fas fa-fire"></i> Stok Terlengkap Se-Indonesia
                 </div>
-                <h1>Jual Peralatan <span class="highlight">Pancing</span> Terlengkap & Terbaik</h1>
-                <p class="hero-desc">Toko pancing terpercaya sejak 2010. Menyediakan joran, reel, umpan, aksesoris pancing berkualitas tinggi dengan harga terjangkau. Gratis konsultasi untuk pemula!</p>
+                <h1>Perlengkapan Pancing <span class="highlight">Kelas Predator</span></h1>
+                <p class="hero-desc">Toko pancing tepercaya sejak 2010. Joran, reel, umpan, hingga aksesoris kelas predator untuk pemancing sejati. Original, lengkap, dan siap tempur.</p>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number" data-target="5000">0</span>+
+                        <span class="stat-number" data-target="100">0</span>+
                         <span class="stat-label">Produk</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number" data-target="10000">0</span>+
+                        <span class="stat-number" data-target="1000">0</span>+
                         <span class="stat-label">Pelanggan</span>
                     </div>
                     <div class="stat">
@@ -87,21 +80,26 @@
             <div class="hero-visual">
                 <div class="hero-card">
                     <div class="card-float card-float-1">
-                        <i class="fas fa-anchor"></i>
-                        <span>Joran Premium</span>
+                        <i class="fas fa-crosshairs"></i>
+                        <span>Original 100%</span>
                     </div>
                     <div class="card-float card-float-2">
-                        <i class="fas fa-star"></i>
-                        <span>Rating 4.9</span>
+                        <i class="fas fa-bolt"></i>
+                        <span>Kirim Cepat</span>
                     </div>
                     <div class="card-float card-float-3">
-                        <i class="fas fa-truck"></i>
-                        <span>Gratis Ongkir</span>
+                        <i class="fas fa-shield-halved"></i>
+                        <span>Garansi Kuat</span>
                     </div>
                     <div class="hero-fish-icon">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="100" cy="100" r="80" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
-                            <text x="100" y="115" text-anchor="middle" font-size="60">🎣</text>
+                            <polygon points="100,8 160,42 160,158 100,192 40,158 40,42" fill="rgba(15,118,110,0.06)" stroke="rgba(15,118,110,0.45)" stroke-width="2"/>
+                            <polygon points="100,30 144,56 144,144 100,170 56,144 56,56" fill="none" stroke="rgba(23,46,44,0.14)" stroke-width="1.5"/>
+                            <path d="M100 20 V180 M20 100 H180" stroke="rgba(23,46,44,0.12)" stroke-width="1"/>
+                            <path d="M58 38 L58 112 Q58 152 100 152 Q142 152 142 112 L142 94" fill="none" stroke="#18302e" stroke-width="7" stroke-linecap="square"/>
+                            <path d="M142 94 L156 102 L142 112" fill="none" stroke="#f97316" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
+                            <path d="M52 22 L72 2" stroke="#f97316" stroke-width="6" stroke-linecap="square"/>
+                            <text x="100" y="186" text-anchor="middle" fill="rgba(35,58,56,0.5)" font-family="Arial, sans-serif" font-size="11" letter-spacing="6">SUGIH FAMILY</text>
                         </svg>
                     </div>
                 </div>
@@ -119,7 +117,7 @@
     <section class="keunggulan" id="keunggulan">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Mengapa Kami?</span>
+                <span class="section-tag">// Mengapa Kami?</span>
                 <h2>Keunggulan <span class="highlight">Jaya Pancing</span></h2>
                 <p>Kami berkomitmen memberikan yang terbaik untuk kepuasan pelanggan</p>
             </div>
@@ -174,7 +172,7 @@
     <section class="kategori" id="kategori">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Jelajahi</span>
+                <span class="section-tag">// Jelajahi</span>
                 <h2>Kategori <span class="highlight">Produk</span></h2>
                 <p>Temukan berbagai kategori peralatan pancing yang Anda butuhkan</p>
             </div>
@@ -223,7 +221,7 @@
     <section class="produk" id="produk">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Best Seller</span>
+                <span class="section-tag">// Best Seller</span>
                 <h2>Produk <span class="highlight">Unggulan</span></h2>
                 <p>Produk terlaris yang paling digemari oleh para pemancing</p>
             </div>
@@ -409,7 +407,7 @@
     <section class="testimoni" id="testimoni">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Testimoni</span>
+                <span class="section-tag">// Testimoni</span>
                 <h2>Apa Kata <span class="highlight">Pelanggan</span> Kami?</h2>
                 <p>Lebih dari 10.000+ pelanggan puas mempercayakan kebutuhan pancingnya kepada kami</p>
             </div>
@@ -494,7 +492,7 @@
     <section class="faq" id="faq">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">FAQ</span>
+                <span class="section-tag">// FAQ</span>
                 <h2>Pertanyaan <span class="highlight">Umum</span></h2>
             </div>
             <div class="faq-list">
@@ -542,7 +540,7 @@
     <section class="kontak" id="kontak">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Kontak</span>
+                <span class="section-tag">// Kontak</span>
                 <h2>Hubungi <span class="highlight">Kami</span></h2>
                 <p>Kunjungi toko kami atau hubungi via WhatsApp</p>
             </div>
@@ -607,16 +605,11 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-wave">
-            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-                <path d="M0,40 C150,100 350,0 500,50 C650,100 800,20 1000,60 C1200,100 1300,30 1440,50 L1440,120 L0,120 Z" fill="var(--footer-bg)"/>
-            </svg>
-        </div>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <a href="#" class="footer-logo">
-                        <i class="fas fa-fish"></i> Jaya Pancing
+                        <i class="fas fa-hook"></i> Jaya Pancing
                     </a>
                     <p>Toko pancing terpercaya sejak 2010. Menyediakan peralatan pancing berkualitas tinggi dengan harga terjangkau untuk semua kalangan pemancing.</p>
             
