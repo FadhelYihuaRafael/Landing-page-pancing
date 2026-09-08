@@ -173,7 +173,7 @@ const fadeObserver = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.keunggulan-card, .kategori-card, .produk-card, .kontak-item, .faq-item').forEach(el => {
+document.querySelectorAll('.keunggulan-card, .kategori-card, .produk-card, .kontak-item, .faq-item, .cta-panel').forEach(el => {
     el.classList.add('fade-in');
     fadeObserver.observe(el);
 });
@@ -270,9 +270,14 @@ function createDots() {
 }
 
 function goToSlide(index) {
+    if (window.innerWidth <= 768) {
+        track.style.transform = 'none';
+        return;
+    }
     const max = getMaxSlide();
     currentSlide = Math.max(0, Math.min(index, max));
-    const cardWidth = cards[0].offsetWidth + 20;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const cardWidth = cards[0].offsetWidth + gap;
     track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
     document.querySelectorAll('.testimoni-dot').forEach((d, i) => {
         d.classList.toggle('active', i === currentSlide);

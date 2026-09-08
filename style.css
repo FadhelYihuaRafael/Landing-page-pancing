@@ -948,6 +948,20 @@ h1, h2, h3, h4 {
     background: radial-gradient(circle at 50% 50%, rgba(15, 118, 110, 0.1), transparent 65%);
 }
 
+.produk-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.produk-card:hover .produk-img {
+    transform: scale(1.05);
+}
+
 .produk-img-placeholder {
     width: 104px;
     height: 104px;
@@ -1397,6 +1411,142 @@ h1, h2, h3, h4 {
     height: 100%;
     min-height: 420px;
     filter: saturate(0.85) contrast(1.02);
+}
+
+/* ===== CTA ===== */
+.cta {
+    padding: 0 0 120px;
+    background: var(--bg);
+}
+
+.cta-panel {
+    position: relative;
+    background:
+        radial-gradient(circle at 85% 15%, rgba(249, 115, 22, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 10% 92%, rgba(20, 184, 166, 0.16) 0%, transparent 42%),
+        linear-gradient(150deg, #0d332f 0%, #0b2623 55%, #122f2b 100%);
+    clip-path: var(--clip);
+    padding: 84px 64px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.cta-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 75%);
+    mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 75%);
+}
+
+.cta-hazard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(-45deg, var(--orange) 0 18px, transparent 18px 36px);
+    opacity: 0.7;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 660px;
+}
+
+.cta-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    background: rgba(249, 115, 22, 0.14);
+    border-left: 3px solid var(--orange);
+    clip-path: var(--clip-sm);
+    color: #fdba74;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 26px;
+}
+
+.cta-content h2 {
+    font-size: clamp(2rem, 4.4vw, 3.2rem);
+    color: #ffffff;
+    margin-bottom: 18px;
+    line-height: 1.12;
+}
+
+.cta-highlight {
+    color: #fb923c;
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.98rem;
+    line-height: 1.85;
+    margin-bottom: 38px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cta-btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 17px 34px;
+    background: var(--grad-accent);
+    color: #ffffff;
+    clip-path: var(--clip);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition: var(--transition);
+    box-shadow: 0 10px 32px rgba(234, 88, 12, 0.4);
+}
+
+.cta-btn-wa:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 44px rgba(234, 88, 12, 0.52);
+    filter: brightness(1.05);
+}
+
+.cta-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 17px 34px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    clip-path: var(--clip);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition: var(--transition);
+}
+
+.cta-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: #ffffff;
+    transform: translateY(-3px);
 }
 
 /* ===== WA FLOAT ===== */
@@ -1863,9 +2013,49 @@ body {
         width: 44px;
         height: 44px;
     }
+    .cta-panel {
+        padding: 60px 24px;
+    }
+    .cta-content h2 {
+        font-size: 1.9rem;
+    }
+    .cta-content p {
+        font-size: 0.92rem;
+        margin-bottom: 30px;
+    }
+    .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .cta-btn-wa,
+    .cta-btn-outline {
+        justify-content: center;
+        width: 100%;
+        padding: 15px 28px;
+        font-size: 0.78rem;
+    }
+    .testimoni-track {
+        flex-direction: column;
+        gap: 14px;
+    }
     .testimoni-card {
-        min-width: 82%;
-        padding: 26px;
+        min-width: 100%;
+        padding: 24px 22px;
+    }
+    .testimoni-controls {
+        display: none;
+    }
+    .testimoni-card p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+    .testimoni-card::before {
+        font-size: 4rem;
+        top: 10px;
+        right: 16px;
+    }
+    .testimoni-stars {
+        margin-bottom: 12px;
     }
     .kontak-map iframe {
         width: 100%;
@@ -1903,8 +2093,8 @@ body {
         font-size: 1.4rem;
     }
     .testimoni-card {
-        min-width: 84%;
-        padding: 24px;
+        min-width: 100%;
+        padding: 20px 18px;
     }
     .testimoni-btn {
         width: 42px;
