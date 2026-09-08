@@ -125,15 +125,42 @@ window.addEventListener('scroll', () => {
 // Hamburger menu
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
+const navOverlay = document.getElementById('navOverlay');
+const navClose = document.getElementById('navClose');
+
+function openMenu() {
+    hamburger.classList.add('active');
+    navLinks.classList.add('active');
+    navOverlay.classList.add('active');
+    document.body.classList.add('menu-open');
+}
+
+function closeMenu() {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    navOverlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+}
+
 hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
+    if (navLinks.classList.contains('active')) {
+        closeMenu();
+    } else {
+        openMenu();
+    }
 });
+navClose.addEventListener('click', closeMenu);
+navOverlay.addEventListener('click', closeMenu);
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-    });
+    link.addEventListener('click', closeMenu);
+});
+
+// Tutup drawer saat resize ke desktop / tekan tombol Escape
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+});
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
 });
 
 // Counter animation with easing
