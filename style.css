@@ -1900,9 +1900,17 @@ body {
     .hero {
         min-height: 100svh;
         padding-top: 70px;
+        display: flex;
+        flex-direction: column;
     }
     .hero-content {
-        padding: 60px 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0 28px;
+        width: 100%;
     }
     .hero-badge {
         font-size: 0.7rem;
@@ -1931,7 +1939,12 @@ body {
     }
     .hero-buttons {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 360px;
+        gap: 14px;
+        margin-bottom: 14px;
     }
     .btn-primary,
     .btn-secondary {
@@ -1941,11 +1954,18 @@ body {
         width: 100%;
     }
     .scroll-indicator {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
         display: flex;
-        bottom: 22px;
+        flex-direction: column;
+        align-items: center;
         gap: 8px;
+        margin: 10px auto 26px;
         font-size: 0.62rem;
         letter-spacing: 0.18em;
+        color: var(--muted);
     }
     .mouse {
         width: 22px;
@@ -2098,6 +2118,9 @@ body {
     }
     .stat-number {
         font-size: 1.5rem;
+    }
+    .scroll-indicator {
+        margin: 12px auto 22px;
     }
     .section-header h2 {
         font-size: 1.7rem;
