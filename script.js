@@ -200,10 +200,51 @@ const fadeObserver = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.keunggulan-card, .kategori-card, .produk-card, .kontak-item, .faq-item, .cta-panel').forEach(el => {
+document.querySelectorAll('.keunggulan-card, .kategori-card, .produk-card, .kontak-item, .faq-item, .cta-panel, .testimoni-card').forEach(el => {
     el.classList.add('fade-in');
     fadeObserver.observe(el);
 });
+
+// Section heading reveal (aman: teks default tampil, animasi hanya enhancement)
+(function initHeadingReveal() {
+    document.querySelectorAll('.section-header').forEach(header => {
+        const h = header.querySelector('h2');
+        if (!h) return;
+
+        // Beri state "ready" (siap animasi) hanya jika JS hidup — teks tetap
+        // terlihat sebelum class ini, jadi tak pernah invisible permanen.
+        header.classList.add('sec-ready');
+        h.classList.add('sec-head');
+
+        const reveal = () => header.classList.add('sec-visible');
+
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    reveal();
+                    obs.unobserve(header);
+                }
+            });
+        }, { threshold: 0.3, rootMargin: '0px 0px -60px 0px' });
+        obs.observe(header);
+
+        // Backstop: jika heading sudah di/atas viewport, tampilkan langsung
+        const check = () => {
+            if (header.classList.contains('sec-visible')) {
+                window.removeEventListener('scroll', check);
+                return;
+            }
+            const rect = h.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.9) {
+                reveal();
+                obs.unobserve(header);
+                window.removeEventListener('scroll', check);
+            }
+        };
+        window.addEventListener('scroll', check, { passive: true });
+        check();
+    });
+})();
 
 // Counter trigger
 const heroObserver = new IntersectionObserver((entries) => {
@@ -407,3 +448,51 @@ document.querySelectorAll('.keunggulan-card, .kategori-card').forEach(card => {
         card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
     });
 });
+
+// Water Ripple on Product Hover
+document.querySelectorAll('.produk-image').forEach(img => {
+    img.addEventListener('mousemove', e => {
+        const rect = img.getBoundingClientRect();
+        const ripple = document.createElement('div');
+        ripple.className = 'ripple';
+        ripple.style.left = (e.clientX - rect.left) + 'px';
+        ripple.style.top = (e.clientY - rect.top) + 'px';
+        img.appendChild(ripple);
+
+        const ripples = img.querySelectorAll('.ripple');
+        if (ripples.length > 3) ripples[0].remove();
+
+        ripple.addEventListener('animationend', () => ripple.remove());
+    });
+});
+
+// Animated Underwater Background
+(function initUnderwater() {
+    const bg = document.querySelector('.underwater-bg');
+    if (!bg) return;
+
+    for (let i = 0; i < 12; i++) {
+        const b = document.createElement('div');
+        b.className = 'bubble';
+        const size = Math.random() * 8 + 4;
+        b.style.width = size + 'px';
+        b.style.height = size + 'px';
+        b.style.left = (Math.random() * 100) + '%';
+        b.style.animationDuration = (4 + Math.random() * 6) + 's';
+        b.style.animationDelay = (Math.random() * 5) + 's';
+        bg.appendChild(b);
+    }
+
+    const fishSVG = '<svg viewBox="0 0 60 30" fill="rgba(255,255,255,0.06)" xmlns="http://www.w3.org/2000/svg"><path d="M5 15 Q15 2 30 15 Q15 28 5 15Z"/><path d="M5 15 L-8 8 L-4 15 L-8 22Z"/></svg>';
+
+    for (let i = 0; i < 2; i++) {
+        const f = document.createElement('div');
+        f.className = 'fish-silhouette';
+        f.innerHTML = fishSVG;
+        f.style.right = '-' + (60 + i * 40) + 'px';
+        f.style.animationDelay = (i * 7) + 's';
+        f.style.animationDuration = (14 + i * 4) + 's';
+        f.style.top = (30 + i * 35) + '%';
+        bg.appendChild(f);
+    }
+})();
