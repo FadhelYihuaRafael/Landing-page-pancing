@@ -1,3 +1,24 @@
+// ===== DARK / LIGHT MODE TOGGLE =====
+(function initTheme() {
+    // Terapkan tema tersimpan sebelum render untuk cegah FOUC (flash of unstyled content)
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+        document.body.classList.add('dark');
+    }
+
+    const btn = document.getElementById('themeToggle');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+        // Update meta theme-color agar status bar browser ikut berubah
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', isDark ? '#0d1a19' : '#f7f6f1');
+    });
+})();
+
 // Particle System
 (function initParticles() {
     const canvas = document.getElementById('particleCanvas');
